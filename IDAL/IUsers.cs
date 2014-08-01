@@ -14,6 +14,10 @@ namespace IDAL
         /// 是否存在该记录
         /// </summary>
         bool Login(Model.Users users);
+        /// <summary>
+        /// 根据UserId查询User对象
+        /// </summary>
+        Users GetUser(Model.Users users);
         #endregion  成员方法
     }
 }

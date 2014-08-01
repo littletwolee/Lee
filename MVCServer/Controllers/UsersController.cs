@@ -16,14 +16,18 @@ namespace MVCServer.Controllers
         readonly BLL.Users bll = new BLL.Users();
         public bool GetUsersByUsersId(string username,string userpwd)
         {
-            Model.Users m_users = new Model.Users();
             MVCServer.Models.Users v_users = new Models.Users();
             string euserpwd = Common.Encrypt.UserMd5(userpwd);
             v_users.UserName = username;
             v_users.Password = euserpwd;
-            m_users = (Model.Users)Common.Objhelper.SetObject<Model.Users>(v_users, m_users);
-            bool result = bll.Login(m_users);
-            return result;
+            return bll.Login((Model.Users)Common.Objhelper.SetObject<Model.Users>(v_users, typeof(Model.Users)));
+        }
+        public Models.Users GetUsersByUsersId(int Id)
+        {
+            Models.Users user = new Models.Users();
+            user.UserID = Id;
+            Models.Users us = new Models.Users();
+            return (Models.Users)Common.Objhelper.SetObject<Models.Users>(bll.GetUser((Model.Users)Common.Objhelper.SetObject<Model.Users>(user, typeof(Model.Users))), us);
         }
     }
 }

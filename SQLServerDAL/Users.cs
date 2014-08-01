@@ -49,5 +49,35 @@ namespace SQLServerDAL
                 sdr.Dispose();
             }
         }
+        public Model.Users GetUser(Model.Users users)
+        {
+            Model.Users user= null;
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select * from Accounts_Users");
+            strSql.Append(" where UserID=@UserID");
+            SqlParameter[] parameters = 
+            {
+                    new SqlParameter("UserID",users.UserID)
+            };
+            SqlDataReader sdr = null;
+            try
+            {
+                sdr = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters);
+                if (sdr.HasRows)
+                {
+                    user = new Model.Users();
+                    user = (Model.Users)Objhelper.SetObjectBySqlDataReader<Model.Users>(sdr, typeof(Model.Users));
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return user;
+        }
     }
 }

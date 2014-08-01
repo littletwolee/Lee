@@ -18,5 +18,9 @@ namespace BLL
         {
             return dal.Login(users);
         }
+        public Model.Users GetUser(Model.Users users)
+        {
+            return dal.GetUser(users);
+        }
     }
 }

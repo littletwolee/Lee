@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MVCServer.Models
 {
-    class Users
+    public class Users
     {
         public Users()
         { }
