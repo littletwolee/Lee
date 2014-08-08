@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_Files.cs" />
+    <Compile Include="DAL_FResumeDownloads.cs" />
+    <Compile Include="DAL_SQLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users.cs" />
   </ItemGroup>

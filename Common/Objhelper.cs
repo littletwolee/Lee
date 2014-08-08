@@ -66,12 +66,18 @@ namespace Common
             }
             return (T)outobj;
         }
-        public static T SetObjectBySqlDataReader<T>(SqlDataReader sdr, Type outobjtype)
+        /// <summary>
+        /// 用SqlDataReader给对象赋值
+        /// </summary>
+        /// <typeparam name="T">返回对象类型</typeparam>
+        /// <param name="sdr">SqlDataReader</param>
+        /// <returns></returns>
+        public static T SetObjectBySqlDataReader<T>(SqlDataReader sdr)
         {
             //得到类型
-            object outobj = CreatObject(outobjtype.Namespace, outobjtype.Namespace + "." + outobjtype.Name);
+            object outobj = CreatObject(typeof(T).Namespace, typeof(T).Namespace + "." + typeof(T).Name);
             //取得属性集合
-            PropertyInfo[] pi = outobjtype.GetProperties();
+            PropertyInfo[] pi = typeof(T).GetProperties();
             try
             {
                 if (sdr.HasRows)

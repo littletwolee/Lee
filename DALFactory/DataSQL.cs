@@ -85,5 +85,12 @@ namespace DALFactory
             object objType = CreateObject(AssemblyPath,ClassNamespace);
             return (IDAL.IUsers)objType;
         }
+        public static IFiles CreateFiles()
+        {
+
+            string ClassNamespace = AssemblyPath + ".Files";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (IDAL.IFiles)objType;
+        }
     }
 }

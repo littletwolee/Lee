@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IFiles.cs" />
+    <Compile Include="IFResumeDownloads.cs" />
     <Compile Include="ISysManage.cs" />
     <Compile Include="IUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

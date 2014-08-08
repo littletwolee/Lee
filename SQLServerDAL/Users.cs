@@ -66,7 +66,7 @@ namespace SQLServerDAL
                 if (sdr.HasRows)
                 {
                     user = new Model.Users();
-                    user = (Model.Users)Objhelper.SetObjectBySqlDataReader<Model.Users>(sdr, typeof(Model.Users));
+                    user = (Model.Users)Objhelper.SetObjectBySqlDataReader<Model.Users>(sdr);
                 }
                 else
                 {
